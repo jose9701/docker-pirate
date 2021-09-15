@@ -19,6 +19,8 @@ pipeline {
       PROJECT_ROOT = 'express-mysql/app'
       EMAIL_ADDRESS = 'san99tiagodevsecops@gmail.com'
       REGISTRY = 'jose9701/docker-pirate-express'
+      DOCKERHUB_USERNAME = "jose9701"
+      DOCKERHUB_PASS = "Jose.1997"
   }
 
   stages {
@@ -87,7 +89,7 @@ pipeline {
       stage('Deploy docker-image') {
         steps {
           // If the Dockerhub authentication stopped, do it again
-          sh 'docker login'
+          sh 'docker login --username $DOCKERHUB_USERNAME --password DOCKERHUB_PASS'
           sh "docker push ${REGISTRY}:${BUILD_NUMBER}"
         }
       }
