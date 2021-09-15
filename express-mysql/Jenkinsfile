@@ -10,18 +10,16 @@ def qualityGateValidation(qg) {
 pipeline {
     agent any
 
-    tools {
-        maven 'mavenTool'
-    }
+  tools {
+      nodejs 'nodejs'
+  }
 
-    environment {
-        // General Variables for Pipeline
-        PROJECT_ROOT = 'practica-devops'
-        // Important: Change "san99tiagodevsecops" for your <email>...
-        EMAIL_ADDRESS = 'san99tiagodevsecops@gmail.com'
-        // Important> Change "san99tiago" for your DockerHub <username>...
-        REGISTRY = 'jose9701/devops_challenge'
-    }
+  environment {
+      // General Variables for Pipeline
+      PROJECT_ROOT = 'express-mysql/app'
+      EMAIL_ADDRESS = 'san99tiagodevsecops@gmail.com'
+      REGISTRY = 'jose9701/docker-pirate-express'
+  }
 
     stages {
         stage('Hello') {
